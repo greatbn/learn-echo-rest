@@ -20,3 +20,14 @@ func CreateUser(c echo.Context) error {
 	}
 	return c.JSONPretty(http.StatusCreated, user, " ")
 }
+
+// List user
+
+func ListUser(c echo.Context) error {
+	users, err := models.GetUser()
+
+	if err != nil {
+		return c.JSON(http.StatusInternalServerError, err)
+	}
+	return c.JSON(http.StatusOK, users)
+}

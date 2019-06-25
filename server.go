@@ -23,5 +23,6 @@ func main() {
 	))
 
 	e.POST("/users", controllers.CreateUser)
+	e.GET("/users", controllers.ListUser)
 	e.Logger.Fatal(e.Start(":1323"))
 }
